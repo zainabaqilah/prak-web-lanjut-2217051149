@@ -34,7 +34,7 @@
                         <svg class="w-6 h-6 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h16v2H4z"/>
                         </svg>
-                        {{ $kelas }}
+                        {{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}
                     </div>
                     <div class="flex items-center bg-yellow-50 border-l-4 border-yellow-400 text-gray-700 text-xl font-semibold px-4 py-3 w-64 shadow-md hover:bg-yellow-100 rounded transition duration-300">
                         <svg class="w-6 h-6 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
