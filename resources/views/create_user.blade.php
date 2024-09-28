@@ -27,6 +27,9 @@
                 </label>
                 <input type="text" name="nama" id="nama" placeholder="Masukkan nama"
                     class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
+                    @foreach($errors->get('nama') as $error)
+                        <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-2 shadow-md font-semibold">{{ $error }}</p>
+                    @endforeach
             </div>
 
             <!-- Input NPM -->
@@ -36,6 +39,9 @@
                 </label>
                 <input type="text" name="npm" id="npm" placeholder="Masukkan NPM"
                     class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
+                @foreach($errors->get('nama') as $error)
+                    <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
+                @endforeach
             </div>
 
             <!-- Input Kelas -->
@@ -43,8 +49,15 @@
                 <label for="kelas" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/class.png" alt="Kelas Icon" class="mr-2" /> Kelas:
                 </label>
-                <input type="text" name="kelas" id="kelas" placeholder="Masukkan kelas"
-                    class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
+                <select type="text" name="kelas_id" id="kelas_id" placeholder="Masukkan kelas" class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300">
+                    <option value="" disabled selected>Pilih kelas</option>
+                    @foreach ($kelas as $kelasItem)
+                    <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
+                    @endforeach
+                </select>
+                @foreach($errors->get('nama') as $error)
+                    <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
+                @endforeach
             </div>
 
             <!-- Submit Button -->
