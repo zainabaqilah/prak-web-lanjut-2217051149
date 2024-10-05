@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,8 +13,15 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-md bg-white rounded-lg shadow-xl p-8">
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center"> -->
+
+
+
+@extends('layouts.app')
+
+@section('content')
+<div class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen flex items-center justify-center">
+    <div class="my-10 mx-96 w-full max-w-md bg-white rounded-lg shadow-xl p-8">
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Form User</h1>
 
         <form action="{{ route('user.store') }}" method="POST" class="space-y-5">
@@ -70,6 +77,9 @@
             </div>
         </form>
     </div>
-</body>
+</div>
 
-</html>
+@endsection
+<!-- </body>
+
+</html> -->
