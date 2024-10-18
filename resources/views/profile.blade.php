@@ -11,12 +11,12 @@
         <div class="ml-28 flex items-center">
             
            
-                <div class="mr-10 bg-gradient-to-r from-purple-400 to-blue-400 w-48 h-48 rounded-full bg-white flex items-center justify-center border-4 border-white shadow-lg">
-                    
-                    <svg class="w-28 h-28 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                </div>
+        <div class="mr-10 bg-gradient-to-r from-purple-400 to-blue-400 w-56 h-56 rounded-full flex items-center justify-center border-4 border-white shadow-lg overflow-hidden">
+            <img class="w-full h-full object-cover" src="{{ asset($user->foto ?? 'assets/img/default.jpg') }}" alt="Profile Picture">
+        </div>
+
+
+
           
 
             <!-- Labels -->
@@ -28,19 +28,19 @@
                         <svg class="w-6 h-6 mr-2 text-green-400" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                         </svg>
-                        {{ $nama }}
+                        {{ $user -> nama }}
                     </div>
                     <div class="flex items-center bg-blue-50 border-l-4 border-blue-400 text-gray-700 text-xl font-semibold px-4 py-3 w-64 shadow-md hover:bg-blue-100 rounded transition duration-300">
                         <svg class="w-6 h-6 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h16v2H4z"/>
                         </svg>
-                        {{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}
+                        {{ $user ->nama_kelas ?? 'Kelas Tidak Ditemukan' }}
                     </div>
                     <div class="flex items-center bg-yellow-50 border-l-4 border-yellow-400 text-gray-700 text-xl font-semibold px-4 py-3 w-64 shadow-md hover:bg-yellow-100 rounded transition duration-300">
                         <svg class="w-6 h-6 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M4 4h16v2H4zm0 6h16v2H4zm0 6h16v2H4z"/>
                         </svg>
-                        {{ $npm }}
+                        {{ $user -> npm }}
                     </div>
                 </div>
             </div>
