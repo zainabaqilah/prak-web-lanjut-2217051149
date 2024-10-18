@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kelas;
 use App\Models\UserModel;
 use App\Http\Requests\UserRequest;
+use PhpParser\Node\Stmt\Return_;
 
 class UserController extends Controller
 {
@@ -54,10 +55,30 @@ class UserController extends Controller
             'nama' => 'required|string|max:255', 
             'npm' => 'required|string|max:255', 
             'kelas_id' => 'required|exists:kelas,id', 
+            'foto' =>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //validasi untuk foto
         ]); 
+
+        // Meng-handle upload foto
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            // Menyimpan file foto di folder 'uploads'
+            $fotoPath = $foto->move(('upload/img'), $foto);
+        } else {
+            // Jika tidak ada file yang diupload, set fotoPath menjadi null atau default
+            $fotoPath = null;
+            }
+
+        // Menyimpan data ke database termasuk path foto
+        $this->userModel->create([
+                'nama' => $request->input('nama'),
+                'npm' => $request->input('npm'),
+                'kelas_id' => $request->input('kelas_id'),
+                'foto' => $fotoPath, // Menyimpan path foto
+        ]);
+        
     
-        $user = UserModel::create($validatedData);
-        $user->load('kelas');
+         // $user = $this->userModel->create($validatedData);
+        // $user->load('kelas');
     
         // return view('profile', [
         //     'nama' => $user->nama,
@@ -65,6 +86,16 @@ class UserController extends Controller
         //     'nama_kelas' => $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan', 
         // ]);
 
-        return redirect()->to('/user');
+        return redirect()->to('/user')->with('success', 'User berhasil ditambahkan');
+    }
+
+    public function show($id){
+        $user = $this->userModel->getUser($id);
+
+        $data = [
+            'title' => 'Profile',
+            'user' => $user,
+        ];
+        return view('profile', $data);
     }
 }

@@ -24,7 +24,7 @@
     <div class="my-10 mx-96 w-full max-w-md bg-white rounded-lg shadow-xl p-8">
         <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Form User</h1>
 
-        <form action="{{ route('user.store') }}" method="POST" class="space-y-5">
+        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf
 
             <!-- Input Nama -->
@@ -62,6 +62,17 @@
                     <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
                     @endforeach
                 </select>
+                @foreach($errors->get('nama') as $error)
+                    <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
+                @endforeach
+            </div>
+
+            <div>
+                <label for="foto" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
+                    <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> NPM:
+                </label>
+                <input type="file" name="foto" id="foto" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
                 @foreach($errors->get('nama') as $error)
                     <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
                 @endforeach
