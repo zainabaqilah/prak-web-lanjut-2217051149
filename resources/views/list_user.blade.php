@@ -20,7 +20,7 @@
         <h1 class="text-4xl font-bold mb-4">List User</h1>
         <p class="text-gray-500 mb-6">Berisi data yang telah tersimpan di database</p>
 
-        <a href="{{ route('user.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+        <a href="{{ route('user.create') }}" class="bg-gradient-to-r from-purple-400 to-blue-400 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
             Tambah Pengguna Baru 
         </a>
         
@@ -50,10 +50,15 @@
                               </td>
 
                               <!-- <td class="px-6 py-4 border border-grey-500"> -->
-                              <td class="py-4 px-6 text-center"><a href="{{ route('user.show', $users->id) }}">Detail</a></td>
-                                  <!-- <button class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-700">Edit</button>
-                                  <button class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-700 ml-2">Hapus</button> -->
-                              <!-- </td> -->
+                              <td class="py-4 px-6 flex justify-center">
+                                <button class="mr-2 bg-green-500 text-white py-1 px-3 rounded hover:bg-green-700"><a href="{{ route('user.show', $users->id) }}">View</a></button>
+                                <button class="mr-2 bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-700"><a href="{{ route('user.edit', $users->id) }}" class="">Edit</a></button>
+                                <form action="{{ route('user.destroy', $users->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="mr-2 bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600" onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">Delete</button>
+                              </form>
+                              </td>
                           </tr>
                       @endforeach
                     @else
