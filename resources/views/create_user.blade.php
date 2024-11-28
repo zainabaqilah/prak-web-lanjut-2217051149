@@ -29,7 +29,7 @@
 
             <!-- Input Nama -->
             <div>
-                <label for="nama" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
+                <label for="nama" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/user--v1.png" alt="Nama Icon" class="mr-2" /> Nama:
                 </label>
                 <input type="text" name="nama" id="nama" placeholder="Masukkan nama"
@@ -39,7 +39,7 @@
                     @endforeach
             </div>
 
-            <!-- Input NPM -->
+            <!-- Input NPM
             <div>
                 <label for="npm" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> NPM:
@@ -49,11 +49,11 @@
                 @foreach($errors->get('nama') as $error)
                     <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
                 @endforeach
-            </div>
+            </div> -->
 
             <!-- Input Kelas -->
             <div>
-                <label for="kelas" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
+                <label for="kelas_id" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/class.png" alt="Kelas Icon" class="mr-2" /> Kelas:
                 </label>
                 <select type="text" name="kelas_id" id="kelas_id" placeholder="Masukkan kelas" class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300">
@@ -62,21 +62,33 @@
                     <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
                     @endforeach
                 </select>
-                @foreach($errors->get('nama') as $error)
+                @foreach($errors->get('kelas_id') as $error)
                     <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
                 @endforeach
             </div>
 
             <div>
-                <label for="foto" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
-                    <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> NPM:
+                <label for="ipk" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
+                    <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="ipk Icon" class="mr-2" /> IPK:
                 </label>
-                <input type="file" name="foto" id="foto" 
+                <input type="text" name="ipk" id="ipk" placeholder="Masukkan IPK"
                     class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
-                @foreach($errors->get('nama') as $error)
+                @foreach($errors->get('ipk') as $error)
                     <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
                 @endforeach
             </div>
+            <div>
+                <label for="foto" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
+                    <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> Foto:
+                </label>
+                <input type="file" name="foto" id="foto" 
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
+                @foreach($errors->get('foto') as $error)
+                    <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
+                @endforeach
+            </div>
+
+
 
             <!-- Submit Button -->
             <div class="text-center">

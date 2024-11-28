@@ -30,8 +30,9 @@
                     <tr class="bg-gradient-to-br from-blue-50 to-blue-100 font-bold">
                         <th class="px-6 py-3 text-center text-xl uppercase border border-grey-500">ID</th>
                         <th class="px-6 py-3 text-center text-xl uppercase border border-grey-500">Nama</th>
-                        <th class="px-6 py-3 text-center text-xl uppercase border border-grey-500">NPM</th>
+                        <!-- <th class="px-6 py-3 text-center text-xl uppercase border border-grey-500">NPM</th> -->
                         <th class="px-6 py-3 text-center text-xl uppercase border border-grey-50">Kelas</th>
+                        <th class="px-6 py-3 text-center text-xl uppercase border border-grey-50">IPK</th>
                         <th class="px-6 py-3 text-center text-xl uppercase border border-grey-50">Foto</th>
                         <th class="px-6 py-3 text-center text-xl uppercase border border-grey-500">Aksi</th>
                     </tr>
@@ -42,8 +43,9 @@
                           <tr>
                               <td class="px-6 py-4 text-center border border-grey-500">{{ $users['id'] }}</td>
                               <td class="px-6 py-4 text-center border border-grey-500">{{ $users['nama'] }}</td>
-                              <td class="px-6 py-4 text-center border border-grey-500">{{ $users['npm'] }}</td>
+                              <!-- <td class="px-6 py-4 text-center border border-grey-500">{{ $users['npm'] }}</td> -->
                               <td class="px-6 py-4 text-center border border-grey-500">{{ $users['nama_kelas'] }}</td>
+                              <td class="px-6 py-4 text-center border border-grey-500">{{ $users['ipk'] }}</td>
                               <!-- <td class="px-6 py-4 border border-grey-500">{{ $users['foto'] }}</td> -->
                               <td class="py-4 px-6 border border-grey-500">
                                 <img class="h-12 w-12 rounded-full object-cover mx-auto" src="{{ asset($users->foto ?? 'assets/img/default.jpeg') }}" alt="User Photo">

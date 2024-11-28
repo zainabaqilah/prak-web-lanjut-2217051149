@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('user', function (Blueprint $table) {
-           if (!Schema::hasColumn('user', 'foto')) {
-            $table->string('foto')->nullable(); 
-           }
+            $table->dropColumn('npm');
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::table('user', function (Blueprint $table) {
-            $table->dropColumn('foto');
+            $table->string('npm')->nullable();
         });
     }
 };
