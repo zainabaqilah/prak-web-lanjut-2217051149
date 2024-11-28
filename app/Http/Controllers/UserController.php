@@ -63,7 +63,8 @@ class UserController extends Controller
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
             // Menyimpan file foto di folder 'uploads'
-            $fotoPath = $foto->move(('upload/img'), $foto);
+            $fileName = time() . '_' . $foto->getClientOriginalName();
+            $fotoPath = $foto->move('uploads', $fileName);
         } else {
             // Jika tidak ada file yang diupload, set fotoPath menjadi null atau default
             $fotoPath = null;
