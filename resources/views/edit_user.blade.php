@@ -29,7 +29,7 @@
             @method('PUT')
             <!-- Input Nama -->
             <div>
-                <label for="nama" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
+                <label for="nama" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/user--v1.png" alt="Nama Icon" class="mr-2" /> Nama:
                 </label>
                 <input type="text" name="nama" id="nama" placeholder="Masukkan nama" value="{{ old('nama', $user->nama) }}" class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
@@ -39,7 +39,7 @@
             </div>
 
             <!-- Input NPM -->
-            <div>
+            <!-- <div>
                 <label for="npm" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> NPM:
                 </label>
@@ -47,11 +47,11 @@
                 @foreach($errors->get('nama') as $error)
                     <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-3 shadow-md font-semibold">{{ $error }}</p>
                 @endforeach
-            </div>
+            </div> -->
 
             <!-- Input Kelas -->
             <div>
-                <label for="kelas" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
+                <label for="kelas" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
                     <img src="https://img.icons8.com/ios/24/000000/class.png" alt="Kelas Icon" class="mr-2" /> Kelas:
                 </label>
                 <select type="text" name="kelas_id" id="kelas_id" placeholder="Masukkan kelas" class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300">
@@ -68,8 +68,18 @@
             </div>
 
             <div>
-                <label for="foto" class="block text-sm font-medium text-gray-600 mb-2 flex items-center">
-                    <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> NPM:
+                <label for="nama" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
+                    <img src="https://img.icons8.com/ios/24/000000/user--v1.png" alt="Nama Icon" class="mr-2" /> IPK:
+                </label>
+                <input type="text" name="ipk" id="ipk" placeholder="Masukkan ipk" value="{{ old('ipk', $user->ipk) }}" class="w-full border border-gray-300 rounded-lg px-4 py-3 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300" />
+                    @foreach($errors->get('ipk') as $error)
+                        <p class="mt-1 text-base text-white bg-gradient-to-r from-red-500 to-red-700 border border-red-600 rounded-xl p-2 shadow-md font-semibold">{{ $error }}</p>
+                    @endforeach
+            </div>
+
+            <div>
+                <label for="foto" class="text-sm font-medium text-gray-600 mb-2 flex items-center">
+                    <img src="https://img.icons8.com/ios/24/000000/id-verified.png" alt="NPM Icon" class="mr-2" /> Foto:
                     </label>
                 @if($user->foto)
                         <img src="{{ asset($user->foto) }}" width="200" height="200">

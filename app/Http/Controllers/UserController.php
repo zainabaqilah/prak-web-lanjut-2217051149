@@ -49,12 +49,13 @@ class UserController extends Controller
         return view('list_user', $data);
     }
     
-    public function store(UserRequest $request) 
+    public function store(Request $request) 
     { 
         $validatedData = $request->validate([ 
             'nama' => 'required|string|max:255', 
-            'npm' => 'required|string|max:255', 
+            // 'npm' => 'required|string|max:255', 
             'kelas_id' => 'required|exists:kelas,id', 
+            'ipk' => 'required|numeric|min:0|max:4',
             'foto' =>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //validasi untuk foto
         ]); 
 
@@ -71,8 +72,9 @@ class UserController extends Controller
         // Menyimpan data ke database termasuk path foto
         $this->userModel->create([
                 'nama' => $request->input('nama'),
-                'npm' => $request->input('npm'),
+                // 'npm' => $request->input('npm'),
                 'kelas_id' => $request->input('kelas_id'),
+                'ipk' => $request->input('ipk'),
                 'foto' => $fotoPath, // Menyimpan path foto
         ]);
         
@@ -95,6 +97,7 @@ class UserController extends Controller
         $data = [
             'title' => 'Profile',
             'user' => $user,
+            'ipk' => $user->ipk,
         ];
         return view('profile', $data);
     }
@@ -120,8 +123,9 @@ class UserController extends Controller
         $user = UserModel::findOrFail($id);
 
         $user->nama = $request->nama;
-        $user->npm = $request->npm;
+        // $user->npm = $request->npm;
         $user->kelas_id = $request->kelas_id;
+        $user->ipk = $request->ipk;
         
         if($request->hasFile('foto')){
             $fileName = time() . '.' . $request->foto->extension();
